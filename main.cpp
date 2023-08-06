@@ -12,14 +12,14 @@ int main() {
     x.emplace_back(3.0);
     y.emplace_back(2.0);
 
-
+    std::cout << "PY_MAJOR_VERSION: "<<PY_MAJOR_VERSION<<'\n'; 
     while (true) {
         plotter_ptr->get_realtime_plotter<1>(true)->plot<RealTimePlot::TYPE::NAMED_LINE>(x, y, "test_1", "r-.");
 
         std::map<std::string, std::string> key_words;
         key_words.emplace("color", "red");
         key_words.emplace("marker", "D");
-        plotter_ptr->get_realtime_plotter<2>(true)->plot<RealTimePlot::TYPE::SCATTER>(x, y, key_words, 3.0);
+        plotter_ptr->get_realtime_plotter<2>(true)->plot<RealTimePlot::TYPE::SCATTER>(x, y, key_words, 10.0);
 
         usleep(10 * 1000);
         x.emplace_back(x.back() + 0.2);
